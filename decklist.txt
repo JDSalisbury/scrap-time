@@ -1,0 +1,4 @@
+1 Huntmaster Liger,
+2 Void Beckoner,
+3 Bushmeat Poacher,
+4 Extinction Event
