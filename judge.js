@@ -4,20 +4,18 @@ const iko = require("./Output.json");
 
 async function start() {
   //   console.log(iko);
-  let decklist = [];
+  const decklist = [];
+  let deck_min = 0;
+  let deck_max = 0;
   fs.readFile("./decklist.txt", "utf8", function (err, data) {
     if (err) throw err;
-    let cleanDeckList = [];
 
-    data.split(",").forEach((value) => {
-      cleanDeckList.push(value.trim());
+    data.split(",").forEach((v) => {
+      vt = v.trim();
+      decklist.push({ num: vt.slice(0, 1), name: vt.slice(2) });
     });
 
-    cleanDeckList.forEach((i) => {
-      decklist.push({ num: i.slice(0, 1), name: i.slice(2) });
-    });
-
-    value_list = iko.filter((el) => {
+    const value_list = iko.filter((el) => {
       return decklist.some((f) => {
         if (f.name === el.name) {
           el.num = parseInt(f.num);
@@ -26,13 +24,11 @@ async function start() {
       });
     });
 
-    deck_min = 0;
-    deck_max = 0;
-    value_list.forEach((element) => {
-      val = parseFloat(element.value) * element.num;
-      if (element.value.length > 3) {
-        deck_max +=
-          parseFloat(element.value.split("//")[1]) * element.num - val;
+    value_list.forEach((e) => {
+      ev = e.value;
+      val = parseFloat(ev) * e.num;
+      if (ev.length > 3) {
+        deck_max += parseFloat(ev.split("//")[1]) * e.num - val;
       }
       deck_min += val;
     });
