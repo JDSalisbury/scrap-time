@@ -20,13 +20,29 @@ async function start() {
     value_list = iko.filter((el) => {
       return decklist.some((f) => {
         if (f.name === el.name) {
-          el.num = f.num;
+          el.num = parseInt(f.num);
           return true;
         }
       });
     });
 
-    console.log({ value_list: value_list });
+    deck_min = 0;
+    deck_max = 0;
+    value_list.forEach((element) => {
+      val = parseFloat(element.value) * element.num;
+      if (element.value.length > 3) {
+        deck_max +=
+          parseFloat(element.value.split("//")[1]) * element.num - val;
+      }
+      deck_min += val;
+    });
+
+    const obj = {
+      deck_value_min: deck_min,
+      deck_value_max: deck_min + deck_max,
+      deck_list: value_list,
+    };
+    console.log(obj);
   });
 }
 

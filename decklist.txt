@@ -1,4 +1,5 @@
 1 Huntmaster Liger,
 2 Void Beckoner,
 3 Bushmeat Poacher,
-4 Extinction Event
+4 Extinction Event,
+2 Sanctuary Lockdown
