@@ -1,0 +1,47 @@
+Deck
+1 Clash of Titans (IKO) 111
+0 Skycat Sovereign (IKO) 207
+1 Lore Drakkis (IKO) 194
+2 Prickly Marmoset (IKO) 129
+0 Blade Banish (IKO) 4
+1 Avian Oddity (IKO) 42
+2 Capture Sphere (IKO) 44
+6 Forest (IKO) 274
+2 Swiftwater Cliffs (IKO) 255
+1 Raugrin Triome (IKO) 251
+0 Island (IKO) 263
+1 Shredded Sails (IKO) 136
+1 Parcelbeast (IKO) 199
+2 Ferocious Tigorilla (IKO) 115
+1 Gust of Wind (IKO) 54
+1 Fiend Artisan (IKO) 220
+0 Patagia Tiger (IKO) 26
+1 Illuna, Apex of Wishes (IKO) 190
+1 Raking Claws (IKO) 131
+0 Cathartic Reunion (IKO) 110
+1 Go for Blood (IKO) 122
+1 Farfinder (IKO) 2
+4 Mountain (IKO) 271
+1 Ram Through (IKO) 170
+1 Sprite Dragon (IKO) 211
+2 Flame Spill (IKO) 117
+1 Cloudpiercer (IKO) 112
+4 Island (IKO) 265
+1 Aegis Turtle (IKO) 39
+
+Sideboard
+1 Skycat Sovereign (IKO) 207
+1 Blade Banish (IKO) 4
+1 Ferocious Tigorilla (IKO) 115
+1 Patagia Tiger (IKO) 26
+1 Raking Claws (IKO) 131
+1 Cathartic Reunion (IKO) 110
+2 Aegis Turtle (IKO) 39
+2 Humble Naturalist (IKO) 160
+1 Neutralize (IKO) 59
+1 Keep Safe (IKO) 56
+1 Hornbash Mentor (IKO) 159
+1 Fully Grown (IKO) 154
+1 Adventurous Impulse (IKO) 142
+1 Reptilian Reflection (IKO) 132
+1 Blazing Volley (IKO) 107
