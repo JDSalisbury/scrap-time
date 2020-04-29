@@ -1,0 +1,48 @@
+Deck
+2 Forest (IKO) 274
+1 Plains (IKO) 262
+1 Frenzied Raptor (IKO) 120
+4 Mountain (IKO) 271
+1 Dreamtail Heron (IKO) 47
+1 Keep Safe (IKO) 56
+0 General's Enforcer (IKO) 188
+1 Narset of the Ancient Way (IKO) 195
+1 Migratory Greathorn (IKO) 165
+1 Essence Scatter (IKO) 49
+1 Wind-Scarred Crag (IKO) 258
+0 Startling Development (IKO) 68
+0 Plains (IKO) 261
+1 Shark Typhoon (IKO) 67
+1 Porcuparrot (IKO) 128
+1 Everquill Phoenix (IKO) 114
+0 Facet Reader (IKO) 50
+1 Rugged Highlands (IKO) 252
+1 Thornwood Falls (IKO) 256
+1 Glimmerbell (IKO) 53
+1 Capture Sphere (IKO) 44
+1 Channeled Force (IKO) 180
+1 Pouncing Shoreshark (IKO) 64
+1 Blossoming Sands (IKO) 244
+1 Swiftwater Cliffs (IKO) 255
+2 Mosscoat Goriak (IKO) 167
+1 Clash of Titans (IKO) 111
+2 Lava Serpent (IKO) 124
+5 Island (IKO) 265
+1 Parcelbeast (IKO) 199
+2 Mysterious Egg (IKO) 3
+1 Gust of Wind (IKO) 54
+1 Sprite Dragon (IKO) 211
+
+Sideboard
+1 Kinnan, Bonder Prodigy (IKO) 192
+3 Tentative Connection (IKO) 138
+1 General's Enforcer (IKO) 188
+1 Aegis Turtle (IKO) 39
+1 Forbidden Friendship (IKO) 119
+1 Startling Development (IKO) 68
+1 Cunning Nightbonder (IKO) 219
+1 Facet Reader (IKO) 50
+1 Jubilant Skybonder (IKO) 223
+1 Survivors' Bond (IKO) 172
+1 Savai Sabertooth (IKO) 29
+1 Spelleater Wolverine (IKO) 137
