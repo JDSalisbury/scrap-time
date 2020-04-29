@@ -4,16 +4,10 @@ const iko = require("./Output.json");
 var obj = {};
 
 async function start() {
-  //   console.log(iko);
   const decklist = [];
   const sideboard = [];
-  let main_min = 0;
-  let main_max = 0;
 
-  let side_min = 0;
-  let side_max = 0;
-
-  fs.readFile("./mtgdeck2.txt", "utf8", function (err, data) {
+  fs.readFile("./mtgadecklist.txt", "utf8", function (err, data) {
     if (err) throw err;
     let main_board = true;
     data.split("\n").forEach((v) => {
@@ -30,7 +24,7 @@ async function start() {
       }
     });
 
-    function deckListWithSetValue(set, cardlist) {
+    function getCardListWithSetValue(set, cardlist) {
       return set.filter((el) => {
         return cardlist.some((f) => {
           if (f.name.includes(el.name)) {
@@ -41,35 +35,36 @@ async function start() {
       });
     }
 
-    const main = deckListWithSetValue(iko, decklist);
+    const main = getCardListWithSetValue(iko, decklist);
 
-    const side = deckListWithSetValue(iko, sideboard);
+    const side = getCardListWithSetValue(iko, sideboard);
 
-    side.forEach((e) => {
-      ev = e.value;
-      val = parseFloat(ev) * e.num;
-      if (ev.length > 3) {
-        side_max += parseFloat(ev.split("//")[1]) * e.num - val;
-      }
-      side_min += val;
-    });
+    function getMinMaxValues(list) {
+      let max = 0;
+      let min = 0;
+      list.forEach((e) => {
+        ev = e.value;
+        val = parseFloat(ev) * e.num;
+        if (ev.length > 3) {
+          max += parseFloat(ev.split("//")[1]) * e.num - val;
+        }
+        min += val;
+      });
 
-    main.forEach((e) => {
-      ev = e.value;
-      val = parseFloat(ev) * e.num;
-      if (ev.length > 3) {
-        main_max += parseFloat(ev.split("//")[1]) * e.num - val;
-      }
-      main_min += val;
-    });
+      return { min: min, max: max };
+    }
+
+    const mainValues = getMinMaxValues(main);
+    const sideValues = getMinMaxValues(side);
 
     obj = {
-      total_min: main_min + side_min,
-      total_max: main_min + main_max + side_min + side_max,
-      main_min: main_min,
-      main_max: main_min + main_max,
-      side_min: side_min,
-      side_max: side_min + side_max,
+      total_min: mainValues.min + sideValues.min,
+      total_max:
+        mainValues.min + mainValues.max + sideValues.min + sideValues.max,
+      main_min: mainValues.min,
+      main_max: mainValues.min + mainValues.max,
+      side_min: sideValues.min,
+      side_max: sideValues.min + sideValues.max,
       mainboard: main,
       sideboard: side,
     };
