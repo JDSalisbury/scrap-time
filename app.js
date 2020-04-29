@@ -1,13 +1,8 @@
 const app = require("express")();
 const request = require("async-request");
 const cheerio = require("cheerio");
-const link = ".overview-top";
-const classLIst = ".cast_list tr";
-const baseUrl = "https://www.imdb.com";
 const fs = require("fs");
 
-let movies = [];
-let data = "";
 async function start() {
   const imdb = await request("https://aetherhub.com/Apps/LimitedRatings/IKO");
   const html = imdb.body;
