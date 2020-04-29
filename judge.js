@@ -1,75 +1,22 @@
 const app = require("express")();
 const fs = require("fs");
 const iko = require("./Output.json");
-var obj = {};
+const utils = require("./cardlistfuncs");
 
 async function start() {
-  const decklist = [];
-  const sideboard = [];
+  const data = fs.readFileSync("./mtgdeck2.txt", "utf8");
 
-  fs.readFile("./mtgadecklist.txt", "utf8", function (err, data) {
-    if (err) throw err;
-    let main_board = true;
-    data.split("\n").forEach((v) => {
-      vt = v.trim();
-      if (vt === "Sideboard") {
-        main_board = false;
-      }
-      if (main_board) {
-        if (parseInt(vt.slice(0, 1)) > 0) {
-          decklist.push({ num: parseInt(vt.slice(0, 1)), name: vt.slice(2) });
-        }
-      } else {
-        sideboard.push({ num: parseInt(vt.slice(0, 1)), name: vt.slice(2) });
-      }
-    });
+  const { decklist, sideboard } = utils.splitDataIntoMainAndSide(data);
 
-    function getCardListWithSetValue(set, cardlist) {
-      return set.filter((el) => {
-        return cardlist.some((f) => {
-          if (f.name.includes(el.name)) {
-            el.num = f.num;
-            return true;
-          }
-        });
-      });
-    }
+  const main = utils.getCardListWithSetValue(iko, decklist);
+  const side = utils.getCardListWithSetValue(iko, sideboard);
 
-    const main = getCardListWithSetValue(iko, decklist);
+  const mainValues = utils.getMinMaxValues(main);
+  const sideValues = utils.getMinMaxValues(side);
 
-    const side = getCardListWithSetValue(iko, sideboard);
+  const obj = utils.createResponseBody(main, side, mainValues, sideValues);
 
-    function getMinMaxValues(list) {
-      let max = 0;
-      let min = 0;
-      list.forEach((e) => {
-        ev = e.value;
-        val = parseFloat(ev) * e.num;
-        if (ev.length > 3) {
-          max += parseFloat(ev.split("//")[1]) * e.num - val;
-        }
-        min += val;
-      });
-
-      return { min: min, max: max };
-    }
-
-    const mainValues = getMinMaxValues(main);
-    const sideValues = getMinMaxValues(side);
-
-    obj = {
-      total_min: mainValues.min + sideValues.min,
-      total_max:
-        mainValues.min + mainValues.max + sideValues.min + sideValues.max,
-      main_min: mainValues.min,
-      main_max: mainValues.min + mainValues.max,
-      side_min: sideValues.min,
-      side_max: sideValues.min + sideValues.max,
-      mainboard: main,
-      sideboard: side,
-    };
-    console.log(obj);
-  });
+  console.log(obj);
 }
 
 start();
