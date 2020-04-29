@@ -1,10 +1,10 @@
 const app = require("express")();
 const fs = require("fs");
 const iko = require("./Output.json");
-const utils = require("./cardlistfuncs");
+const utils = require("./utils/cardlistfuncs");
 
 async function start() {
-  const data = fs.readFileSync("./mtgdeck2.txt", "utf8");
+  const data = fs.readFileSync("./decklists/mtgdeck2.txt", "utf8");
 
   const { decklist, sideboard } = utils.splitDataIntoMainAndSide(data);
 

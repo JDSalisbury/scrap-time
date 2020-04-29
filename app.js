@@ -48,7 +48,6 @@ start();
 
 app.get("/", async (req, res) => res.send({ cards }));
 
-// app.listen(3000);
 app.listen(3000, () =>
   console.log(`Example app listening at http://localhost:${3000}`)
 );
