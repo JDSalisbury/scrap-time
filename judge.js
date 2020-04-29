@@ -7,8 +7,11 @@ async function start() {
   //   console.log(iko);
   const decklist = [];
   const sideboard = [];
-  let deck_min = 0;
-  let deck_max = 0;
+  let main_min = 0;
+  let main_max = 0;
+
+  let side_min = 0;
+  let side_max = 0;
 
   fs.readFile("./mtgdeck2.txt", "utf8", function (err, data) {
     if (err) throw err;
@@ -40,21 +43,33 @@ async function start() {
 
     const main = deckListWithSetValue(iko, decklist);
 
-    // const side = deckListWithSetValue(iko, sideboard);
+    const side = deckListWithSetValue(iko, sideboard);
+
+    side.forEach((e) => {
+      ev = e.value;
+      val = parseFloat(ev) * e.num;
+      if (ev.length > 3) {
+        side_max += parseFloat(ev.split("//")[1]) * e.num - val;
+      }
+      side_min += val;
+    });
 
     main.forEach((e) => {
       ev = e.value;
       val = parseFloat(ev) * e.num;
       if (ev.length > 3) {
-        deck_max += parseFloat(ev.split("//")[1]) * e.num - val;
+        main_max += parseFloat(ev.split("//")[1]) * e.num - val;
       }
-      deck_min += val;
+      main_min += val;
     });
 
     obj = {
-      draft_min: deck_min,
-      draft_max: deck_min + deck_max,
-      drafted_cards: main,
+      main_min: main_min,
+      main_max: main_min + main_max,
+      side_min: side_min,
+      side_max: side_min + side_max,
+      mainboard: main,
+      sideboard: side,
     };
     console.log(obj);
   });
