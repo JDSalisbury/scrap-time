@@ -1,5 +1,9 @@
 # MTGA Draft Value
 
+When a new MTG set comes out, the cards are reviewed by people and given a 1-5 raiting on how good they are. When drafting a set its good to use these raitings to value selecting one card over another.
+
+During a draft 8 people open up three packs of cards and creates a 40 card deck. You select one card out of a pack of 15 and pass the pack to the person to your left, and you will then recieve a pack of 14 from the person to your right, this process is continued for pack 1 and 3 untill all the cards are picked, pack 2 is passed to the right in similar fashion.
+
 The goal was to scrape a site to get the values given to each card in a new set.
 
 ![Scraped Site](/images/scraped.png)
