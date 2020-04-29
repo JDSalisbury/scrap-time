@@ -64,6 +64,8 @@ async function start() {
     });
 
     obj = {
+      total_min: main_min + side_min,
+      total_max: main_min + main_max + side_min + side_max,
       main_min: main_min,
       main_max: main_min + main_max,
       side_min: side_min,
